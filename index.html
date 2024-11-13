@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Varisha</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #FFC0CB; /* Soft pink background */
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: #ff5e78;
+            text-align: center;
+        }
+
+        .message {
+            position: absolute;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Bold outline effect */
+            opacity: 0; /* Start with the text invisible */
+            animation: appearAndDisappear 2s forwards; /* 2s animation for appearance and disappearance */
+        }
+
+        /* Keyframes for random positioning and fading */
+        @keyframes appearAndDisappear {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1; /* Make it visible */
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0; /* Fade out */
+                transform: translateY(-50px); /* Slight upward movement as it fades */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        // Function to create a new "I love you Varisha" bubble
+        function createBubble() {
+            const message = document.createElement('div');
+            message.classList.add('message');
+            message.textContent = 'I love you Varisha';
+
+            // Random position for the message
+            const randomX = Math.random() * window.innerWidth; // Random X position
+            const randomY = Math.random() * window.innerHeight; // Random Y position
+
+            // Position the message at the random location
+            message.style.left = `${randomX}px`;
+            message.style.top = `${randomY}px`;
+
+            // Append the message to the body
+            document.body.appendChild(message);
+
+            // Remove the message after 2 seconds (after it disappears)
+            setTimeout(() => {
+                message.remove();
+            }, 2000); // Message disappears after 2 seconds
+        }
+
+        // Set an interval to create a new bubble every 200ms (so around 10 bubbles appear per second)
+        setInterval(createBubble, 200);
+    </script>
+</body>
+</html>
